@@ -75,7 +75,7 @@ class _ImageUploadState extends State<ImageUpload> {
                     .FirebaseStorage.instance
                     .ref('/QamarSultan/' ).child(DateTime.now().millisecondsSinceEpoch.toString());
                 firebase_storage.UploadTask uploadTask =
-                    ref.putFile(_image!.absolute,metadata);
+                    ref.putFile(_image!.absolute,firebase_storage.SettableMetadata(contentType: 'image'));
                 Future.value(uploadTask).then((value) async {
                   setState(() {
                     loading = false;
